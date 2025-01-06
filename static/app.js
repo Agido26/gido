@@ -1,7 +1,7 @@
 class PDFSearchApp {
     constructor() {
         this.pdfs = [];
-        this.apiUrl = 'http://localhost:5000';
+        this.apiUrl = '';
         this.initializeElements();
         this.addEventListeners();
         this.setupDragAndDrop();
