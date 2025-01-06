@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, render_template
 from flask_cors import CORS
 import os
 import PyPDF2
@@ -10,11 +10,11 @@ CORS(app)  # Enable CORS for all routes
 # Serve static files (your HTML, CSS, JS)
 @app.route('/')
 def serve_html():
-    return send_from_directory('.', 'index.html')
+    return render_template('index.html')
 
 @app.route('/<path:path>')
 def serve_static(path):
-    return send_from_directory('.', path)
+    return send_from_directory('static', path)
 
 # Handle PDF processing
 @app.route('/process-pdf', methods=['POST'])
