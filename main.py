@@ -5,14 +5,13 @@ import PyPDF2
 import io
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
-# Serve static files (your HTML, CSS, JS)
 @app.route('/')
 def serve_html():
     return render_template('index.html')
 
-@app.route('/<path:path>')
+@app.route('/static/<path:path>')
 def serve_static(path):
     return send_from_directory('static', path)
 
